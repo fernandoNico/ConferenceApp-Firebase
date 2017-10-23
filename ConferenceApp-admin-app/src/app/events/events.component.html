@@ -1,0 +1,40 @@
+<div  class="container">
+        <br>
+  <div class="row">
+    <br>
+    <div class="col">
+            <h1>Upcoming Events</h1>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+            <form class="form-inline my-2 my-lg-3">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+    </div>
+    
+    
+</div>
+<hr>
+
+<div class="card-columns">
+        <div *ngFor="let event of events">
+                <div class="card" >
+                        <img class="card-img-top" src={{event.image}} alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">{{event.name}}</h5>
+                        <small><span class="badge badge-info">{{event.date}}</span></small>
+                        <br><br>
+                        <h6><span class="badge badge-light">{{event.location}}</span></h6>
+                        </div>
+                        <div class="card-footer ">
+                                <a href="#" class="btn btn-warning btn-sm" [routerLink]="['/event', event.id]" >Edit </a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete </a>
+                        </div>
+                </div>      
+        </div>
+</div>
+</div>
+<br>
+<br>
+
