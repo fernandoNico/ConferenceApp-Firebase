@@ -28,7 +28,11 @@ import { SpeakerFormComponent } from './edit-event/edit-speakers/edit-speaker.co
 import { ExhibitorFormComponent } from './edit-event/edit-exhibitors/edit-exhibitor.component';
 import { InnerEventsFormComponent } from './edit-event/edit-inner-events/edit-inner-events.component';
 
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 
 const routes: Routes = [
   { path: 'signup', component: SignupComponentComponent },
@@ -61,6 +65,10 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule, NgbModule.forRoot(), FormsModule, HttpModule, CommonModule,
+    AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
+    AngularFireDatabaseModule,
     RouterModule.forRoot(routes, { useHash: true }), AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCA20_4EESP91_VCovXIqtbMWrRjWnuD8g'
     })
